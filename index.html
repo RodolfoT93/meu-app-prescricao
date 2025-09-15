@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prescrição Pro — Offline</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h2>Configurações</h2>
+      <label>Nome do médico</label>
+      <input id="doctorName" placeholder="Dr(a). Nome Completo">
+      <label>CRM</label>
+      <input id="doctorCrm" placeholder="CRM - UF">
+      <label>Clínica</label>
+      <input id="clinicInfo" placeholder="Endereço, telefone, e-mail">
+      <h2>Pacientes</h2>
+      <label>Selecionar</label>
+      <input id="patientSelect" list="patientsList" placeholder="Nome do paciente">
+      <datalist id="patientsList"></datalist>
+      <label>Novo paciente</label>
+      <input id="patientNew" placeholder="Nome completo">
+      <div class="row">
+        <button id="addPatient">Adicionar</button>
+        <button id="removePatient" class="light">Remover</button>
+      </div>
+      <h2>Prescrição</h2>
+      <label>Data</label>
+      <input type="date" id="datePresc">
+      <label>Tipo</label>
+      <select id="typePresc">
+        <option value="simple">Simples</option>
+        <option value="special">Controle Especial</option>
+      </select>
+      <div id="items"></div>
+      <div class="row">
+        <button id="addItem">Adicionar item</button>
+        <button id="clearItems" class="light">Limpar</button>
+      </div>
+      <h2>Modelos</h2>
+      <select id="templateSelect"></select>
+      <div class="row">
+        <button id="applyTemplate" class="secondary">Aplicar</button>
+        <button id="saveTemplate" class="light">Salvar modelo</button>
+        <button id="deleteTemplate" class="light">Excluir</button>
+      </div>
+      <h2>Observações</h2>
+      <textarea id="observations" placeholder="Orientações/Observações"></textarea>
+      <h2>Assinatura via VIDaaS</h2>
+      <p class="note">Gere o PDF e clique em <b>Assinar com VIDaaS</b> para finalizar a assinatura no portal oficial.</p>
+      <div class="row">
+        <button id="generatePdf" class="primary">Gerar PDF</button>
+        <button id="signVidaas">Assinar com VIDaaS</button>
+      </div>
+      <button id="clearAll" class="light">Limpar tudo</button>
+    </aside>
+    <main class="content">
+      <h1>Prescrição Pro — Offline</h1>
+      <div id="alerts"></div>
+      <div class="preview">
+        <pre id="previewText"></pre>
+      </div>
+      <div id="downloadLinks"></div>
+    </main>
+  </div>
+  <datalist id="medsList"></datalist>
+</body>
+</html>
