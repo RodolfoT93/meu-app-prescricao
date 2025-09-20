@@ -1,9 +1,8 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export',
-  images: {
-    unoptimized: true
-  }
-}
-
-module.exports = nextConfig
+seu-projeto/
+├── pages/          # Suas páginas React
+│   └── index.js    # Página inicial
+├── public/         # Arquivos estáticos
+├── styles/         # Seus arquivos CSS
+│   └── globals.css
+├── next.config.js
+└── package.json
